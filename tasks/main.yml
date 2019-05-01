@@ -16595,6 +16595,7 @@
     option: ldap_id_use_start_tls
     value: true
   when:
+  - test_grep_domain.stdout is defined
   - test_grep_domain.stdout | length < 1
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
@@ -16624,6 +16625,7 @@
     create: true
     mode: 384
   when:
+  - test_grep_domain.stdout is defined
   - test_grep_domain.stdout | length > 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
@@ -16685,6 +16687,7 @@
     option: ldap_tls_cacertdir
     value: '{{ var_sssd_ldap_tls_ca_dir }}'
   when:
+  - test_grep_domain.stdout is defined
   - test_grep_domain.stdout | length < 1
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
@@ -16711,6 +16714,7 @@
     create: true
     mode: 384
   when:
+  - test_grep_domain.stdout is defined
   - test_grep_domain.stdout | length > 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
