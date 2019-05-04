@@ -67,7 +67,7 @@
     state: mounted
     fstype: '{{ mount_info.fstype }}'
   when:
-  - device_name.stdout is defined
+  - device_name.stdout is defined and device_name.stdout is defined
   - (device_name.stdout | length > 0)
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - unknown_severity | bool
@@ -124,7 +124,7 @@
   - '{{ device_name.stdout_lines[0].split() | list | lower }}'
   - '{{ device_name.stdout_lines[1].split() | list }}'
   when:
-  - device_name.stdout_lines is defined
+  - device_name.stdout_lines is defined and device_name.stdout is defined
   - (device_name.stdout | length > 0)
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - unknown_severity | bool
@@ -153,7 +153,7 @@
     state: mounted
     fstype: '{{ mount_info.fstype }}'
   when:
-  - device_name.stdout is defined
+  - device_name.stdout is defined and device_name.stdout is defined
   - (device_name.stdout | length > 0)
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - unknown_severity | bool
