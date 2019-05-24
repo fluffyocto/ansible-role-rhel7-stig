@@ -67,7 +67,7 @@
     state: mounted
     fstype: '{{ mount_info.fstype }}'
   when:
-  - device_name.stdout is defined and device_name.stdout is defined
+  - device_name.stdout is defined
   - (device_name.stdout | length > 0)
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - unknown_severity | bool
@@ -124,7 +124,7 @@
   - '{{ device_name.stdout_lines[0].split() | list | lower }}'
   - '{{ device_name.stdout_lines[1].split() | list }}'
   when:
-  - device_name.stdout_lines is defined and device_name.stdout is defined
+  - device_name.stdout_lines is defined
   - (device_name.stdout | length > 0)
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - unknown_severity | bool
@@ -153,7 +153,7 @@
     state: mounted
     fstype: '{{ mount_info.fstype }}'
   when:
-  - device_name.stdout is defined and device_name.stdout is defined
+  - device_name.stdout is defined
   - (device_name.stdout | length > 0)
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - unknown_severity | bool
@@ -8482,7 +8482,7 @@
     all_files:
     - /etc/audit/rules.d/privileged.rules
   when:
-  - find_finit_module.matched is defined and find_finit_module.matched == 0
+  - find_finit_module.matched == 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -8511,7 +8511,7 @@
     all_files:
     - '{{ find_finit_module.files | map(attribute=''path'') | list | first }}'
   when:
-  - find_finit_module.matched is defined and find_finit_module.matched > 0
+  - find_finit_module.matched > 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -8572,7 +8572,7 @@
     state: present
     create: true
   when:
-  - audit_arch is defined and audit_arch == 'b64'
+  - audit_arch == 'b64'
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -8631,7 +8631,7 @@
     line: -a always,exit -F arch=b64 -S finit_module -k module-change
     create: true
   when:
-  - audit_arch is defined and audit_arch == 'b64'
+  - audit_arch == 'b64'
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -8698,7 +8698,7 @@
     all_files:
     - /etc/audit/rules.d/privileged.rules
   when:
-  - find_create_module.matched is defined and find_create_module.matched == 0
+  - find_create_module.matched == 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - audit_rules_kernel_module_loading_create | bool
@@ -8717,7 +8717,7 @@
     all_files:
     - '{{ find_create_module.files | map(attribute=''path'') | list | first }}'
   when:
-  - find_create_module.matched is defined and find_create_module.matched > 0
+  - find_create_module.matched > 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - audit_rules_kernel_module_loading_create | bool
@@ -8758,7 +8758,7 @@
     state: present
     create: true
   when:
-  - audit_arch is defined and audit_arch == 'b64'
+  - audit_arch == 'b64'
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - audit_rules_kernel_module_loading_create | bool
@@ -8797,7 +8797,7 @@
     line: -a always,exit -F arch=b64 -S create_module -k module-change
     create: true
   when:
-  - audit_arch is defined and audit_arch == 'b64'
+  - audit_arch == 'b64'
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - audit_rules_kernel_module_loading_create | bool
