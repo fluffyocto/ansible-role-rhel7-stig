@@ -1,46 +1,45 @@
----
+inactivity_timeout_value
+var_selinux_state
+var_selinux_policy_name
+rsyslog_remote_loghost_address
+var_removable_partition
+sysctl_net_ipv6_conf_all_accept_source_route_value
+sysctl_net_ipv4_conf_all_accept_source_route_value
+sysctl_net_ipv4_conf_default_accept_redirects_value
+sysctl_net_ipv4_conf_all_accept_redirects_value
+sysctl_net_ipv4_conf_default_accept_source_route_value
+sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value
+var_auditd_action_mail_acct
+var_auditd_space_left_action
+var_auditd_space_left
+var_accounts_user_umask
+var_accounts_tmout
+var_accounts_fail_delay
+var_accounts_max_concurrent_login_sessions
+var_password_pam_maxrepeat
+var_password_pam_dcredit
+var_password_pam_lcredit
+var_password_pam_ocredit
+var_password_pam_minlen
+var_password_pam_difok
+var_password_pam_minclass
+var_password_pam_retry
+var_password_pam_maxclassrepeat
+var_password_pam_ucredit
+var_accounts_passwords_pam_faillock_unlock_time
+var_accounts_passwords_pam_faillock_deny
+var_accounts_passwords_pam_faillock_fail_interval
+var_password_pam_unix_remember
+var_account_disable_post_pw_expiration
+var_accounts_maximum_age_login_defs
+var_accounts_minimum_age_login_defs
+login_banner_text
+sshd_idle_timeout_value
+sshd_approved_macs
+var_sshd_set_keepalive
+var_sssd_ldap_tls_ca_dir---
 # defaults file for rhel7_stig
 
-inactivity_timeout_value: true
-login_banner_text: true
-rsyslog_remote_loghost_address: true
-sshd_approved_macs: true
-sshd_idle_timeout_value: true
-sysctl_net_ipv4_conf_all_accept_redirects_value: true
-sysctl_net_ipv4_conf_all_accept_source_route_value: true
-sysctl_net_ipv4_conf_default_accept_redirects_value: true
-sysctl_net_ipv4_conf_default_accept_source_route_value: true
-sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value: true
-sysctl_net_ipv6_conf_all_accept_source_route_value: true
-var_account_disable_post_pw_expiration: true
-var_accounts_fail_delay: true
-var_accounts_max_concurrent_login_sessions: true
-var_accounts_maximum_age_login_defs: true
-var_accounts_minimum_age_login_defs: true
-var_accounts_passwords_pam_faillock_deny: true
-var_accounts_passwords_pam_faillock_fail_interval: true
-var_accounts_passwords_pam_faillock_unlock_time: true
-var_accounts_tmout: true
-var_accounts_user_umask: true
-var_auditd_action_mail_acct: true
-var_auditd_space_left: true
-var_auditd_space_left_action: true
-var_password_pam_dcredit: true
-var_password_pam_difok: true
-var_password_pam_lcredit: true
-var_password_pam_maxclassrepeat: true
-var_password_pam_maxrepeat: true
-var_password_pam_minclass: true
-var_password_pam_minlen: true
-var_password_pam_ocredit: true
-var_password_pam_retry: true
-var_password_pam_ucredit: true
-var_password_pam_unix_remember: true
-var_removable_partition: true
-var_selinux_policy_name: true
-var_selinux_state: true
-var_sshd_set_keepalive: true
-var_sssd_ldap_tls_ca_dir: true
 account_disable_post_pw_expiration: true
 accounts_logon_fail_delay: true
 accounts_max_concurrent_login_sessions: true
@@ -86,7 +85,6 @@ audit_rules_file_deletion_events_renameat: true
 audit_rules_file_deletion_events_rmdir: true
 audit_rules_file_deletion_events_unlink: true
 audit_rules_file_deletion_events_unlinkat: true
-audit_rules_kernel_module_loading_create: true
 audit_rules_kernel_module_loading_delete: true
 audit_rules_kernel_module_loading_finit: true
 audit_rules_kernel_module_loading_init: true
@@ -136,7 +134,6 @@ dconf_gnome_screensaver_lock_delay: true
 dconf_gnome_screensaver_lock_enabled: true
 dconf_gnome_screensaver_user_locks: true
 dconf_gnome_session_idle_user_locks: true
-dconf_use_text_backend: true
 disable_ctrlaltdel_reboot: true
 disable_host_auth: true
 disable_strategy: true
@@ -149,6 +146,7 @@ file_permissions_sshd_private_key: true
 file_permissions_sshd_pub_key: true
 gnome_gdm_disable_automatic_login: true
 gnome_gdm_disable_guest_login: true
+grub2_enable_fips_mode: true
 high_complexity: true
 high_disruption: true
 high_severity: true
@@ -171,6 +169,7 @@ package_vsftpd_removed: true
 package_ypserv_removed: true
 patch_strategy: true
 reboot_required: true
+require_singleuser_auth: true
 restrict_strategy: true
 rpm_verify_hashes: true
 rpm_verify_ownership: true
@@ -192,10 +191,8 @@ sshd_disable_compression: true
 sshd_disable_empty_passwords: true
 sshd_disable_gssapi_auth: true
 sshd_disable_kerb_auth: true
-sshd_disable_rhosts: true
 sshd_disable_rhosts_rsa: true
 sshd_disable_root_login: true
-sshd_disable_user_known_hosts: true
 sshd_do_not_permit_user_env: true
 sshd_enable_strictmodes: true
 sshd_enable_warning_banner: true
